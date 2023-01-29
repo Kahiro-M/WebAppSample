@@ -5,10 +5,21 @@ services:
   mysql:
     image: mysql:5.7
     volumes:
-      - db_data:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
+      # - db_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USER: sample_user
+      MYSQL_PASSWORD: 'sample_password'
+      MYSQL_DATABASE: sample_db
+      TZ: "Asia/Tokyo"
+      # 0.0.0.0で全IPからのアクセス許可
+      # BIND-ADDRESS: 0.0.0.0
+      # 指定したアドレスで待ち受け
+      # BIND-ADDRESS: 192.168.0.XXX
+    ports:
+      - 3306:3306
 
   phpmyadmin:
     depends_on:
