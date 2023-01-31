@@ -38,5 +38,18 @@ services:
     depends_on:
       - mysql
 
+  postfix:
+    #build: ./
+    image: catatnight/postfix
+    restart: always
+      #volumes:
+      # Postfixの設定をマウントする
+      #- type: bind
+      #  source: ./postfix/main.cf
+      #  target: /etc/postfix/main.cf
+
+
+
+
 volumes:
     db_data: {}
