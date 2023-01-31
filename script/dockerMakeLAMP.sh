@@ -14,7 +14,6 @@ sudo docker-compose build
 # ②のrunだけが実行される。
 # --buildオプションで、buildとrunを一緒に実行
 sudo docker-compose up -d
-
-#Dockerfileの更新を反映させる
-# sudo docker-compose up -d --build
+# Dockerfileも変更した場合は"build"オプションをつける
+#sudo docker-compose up -d --build
 
