@@ -7,3 +7,6 @@ sudo apt install docker-compose -y
 cd docker-lamp
 sudo docker-compose build
 sudo docker-compose up -d
+# Dockerfileも変更した場合は"build"オプションをつける
+#sudo docker-compose up -d --build
+

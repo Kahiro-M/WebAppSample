@@ -9,6 +9,14 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
+        #MYSQL_PASSWORD: 'test1234'
+        #MYSQL_USER: sample_user
+        #MYSQL_DATABASE: sample_db
+      TZ: "Asia/Tokyo"
+      #BIND-ADDRESS: 0.0.0.0
+      #BIND-ADDRESS: 192.168.13.0
+    ports:
+      - 3306:3306
 
   phpmyadmin:
     depends_on:
