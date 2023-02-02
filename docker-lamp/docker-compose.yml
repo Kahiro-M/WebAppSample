@@ -45,7 +45,7 @@ services:
     # you can assign this entirely to `hostname` and remove `domainname`.
     hostname: mail
     domainname: example.com
-    env_file: mailserver/mailserver.env
+    env_file: mailserver/.env
     # More information about the mail-server ports:
     # https://docker-mailserver.github.io/docker-mailserver/edge/config/security/understanding-the-ports/
     # To avoid conflicts with yaml base-60 float, DO NOT remove the quotation marks.
@@ -56,12 +56,14 @@ services:
         #- "587:587"  # ESMTP (explicit TLS => STARTTLS)
         #- "993:993"  # IMAP4 (implicit TLS)
     volumes:
-      - ./docker-data/dms/mail-data/:/var/mail/
-      - ./docker-data/dms/mail-state/:/var/mail-state/
-      - ./docker-data/dms/mail-logs/:/var/log/mail/
-      - ./docker-data/dms/config/:/tmp/docker-mailserver/
+      - ./mailserver/docker-data/dms/mail-data/:/var/mail/
+      - ./mailserver/docker-data/dms/mail-state/:/var/mail-state/
+      - ./mailserver/docker-data/dms/mail-logs/:/var/log/mail/
+      - ./mailserver/docker-data/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
     restart: always
+    environment:
+      TZ: "Asia/Tokyo"
     stop_grace_period: 1m
     cap_add:
       - NET_ADMIN
@@ -69,22 +71,6 @@ services:
       test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
       timeout: 3s
       retries: 0
-
-
-        #  postfix:
-        #    build: ./postfix
-        #    image: catatnight/postfix
-        #    restart: always
-        #    ports:
-        #      - "25:25"
-        #        #volumes:
-        #        ## Postfixの設定をマウントする
-        #        #- type: bind
-        #        #source: ./postfix/main.cf
-        #        #target: /etc/postfix/main.cf
-        #
-        #      #- mail_data:/var/mail
-        #
 
 
 volumes:
