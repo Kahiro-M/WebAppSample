@@ -8,4 +8,6 @@ RUN apt-get update \
   && apt-get install -y libicu-dev \
   # デバッグ用にmysqlコマンド
   && apt-get install -y default-mysql-client \
-  && docker-php-ext-install pdo_mysql intl mysqli mbstring gd iconv
+  && docker-php-ext-install pdo_mysql intl mysqli mbstring gd iconv \
+  # rewrite_module をインストール(.htaccessの有効化)
+  && a2enmod rewrite
