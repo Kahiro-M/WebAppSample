@@ -35,6 +35,7 @@ services:
     build: ./php
     volumes:
       - ./htdocs:/var/www/html
+      - ./cakephp:/var/www/cakephp
     restart: always
     ports:
       - "80:80"
