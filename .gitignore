@@ -1,3 +1,6 @@
 docker-lamp/mysql/*
 docker-lamp/mailserver/.env
 docker-lamp/mailserver/docker-data/*
+docker-lamp/cakephp/config/.env
+docker-lamp/cakephp/tmp/*
+docker-lamp/cakephp/logs/*
