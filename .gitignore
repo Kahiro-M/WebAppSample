@@ -4,3 +4,6 @@ docker-lamp/mailserver/docker-data/*
 docker-lamp/cakephp/config/.env
 docker-lamp/cakephp/tmp/*
 docker-lamp/cakephp/logs/*
+docker-lamp/htdocs/wp/wp-config.php
+docker-lamp/htdocs/wp/wp-content/upgrade/*
+docker-lamp/htdocs/wp/wp-content/uploads/*
