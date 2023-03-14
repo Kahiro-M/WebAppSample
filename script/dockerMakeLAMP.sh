@@ -17,3 +17,6 @@ sudo docker-compose up -d
 # Dockerfileも変更した場合は"build"オプションをつける
 #sudo docker-compose up -d --build
 
+# cakeの初期設定
+sudo chmod 777 docker-lamp/cakephp/logs
+sudo chmod 777 docker-lamp/cakephp/tmp -R
