@@ -16,7 +16,16 @@ try {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $target = $_POST['target'];
+    $target = $db->quote($_POST['target']);
+
+    $tagetFlg = false;
+    if(preg_match('/^\'\d+\'/',$target)){
+        $tagetFlg = true;
+    }else{
+        $tagetFlg = false;
+        header("Location: $LOGOUT_URL");
+        exit();
+    }
 
     // ユーザーが存在するかを確認
     $query = "SELECT * FROM users WHERE username = :username";
@@ -31,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         print('<div>階層情報表示</div>');
 
         // その他の必要な処理を追加
-        $sql = "SELECT * FROM `sample`.`data` WHERE `id` LIKE $target";
+        $sql = "SELECT * FROM `data` WHERE `id` LIKE $target";
         $ret = $db->query($sql);
         if($ret){
             while ($row = $ret->fetch()) {

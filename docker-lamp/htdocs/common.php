@@ -2,7 +2,7 @@
 // common.php
 // 共通関数
 function dig_level($db, $upper_id){
-    $sql = "SELECT * FROM `sample`.`data` WHERE `upper_id` LIKE $upper_id";
+    $sql = "SELECT * FROM `data` WHERE `upper_id` LIKE $upper_id";
     $ret = $db->query($sql);
     while ($row = $ret->fetch()) {
         

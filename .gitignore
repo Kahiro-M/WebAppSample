@@ -1,0 +1,4 @@
+docker-lamp/docker-data/*
+docker-lamp/postfix/*
+tmp/*
+docker-lamp/mailserver/mailserver.env
