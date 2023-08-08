@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 print('　'.'('.$row['level'].')');
                 print('<br>');
                 $top_level_id = $row['id'];
-                dig_level($db, $top_level_id);
+                search_branch($db, $top_level_id);
             }
         }
     

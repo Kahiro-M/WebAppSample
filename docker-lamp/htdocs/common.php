@@ -1,7 +1,7 @@
 <?php
 // common.php
 // 共通関数
-function dig_level($db, $upper_id){
+function search_branch($db, $upper_id){
     $sql = "SELECT * FROM `data` WHERE `upper_id` LIKE $upper_id";
     $ret = $db->query($sql);
     while ($row = $ret->fetch()) {
@@ -11,7 +11,7 @@ function dig_level($db, $upper_id){
         print('　'.'('.$row['level'].')');
         print('<br>');
 
-        $child_ret = dig_level($db, $row['id']);
+        $child_ret = search_branch($db, $row['id']);
     }
 }
 ?>
